@@ -1,0 +1,15 @@
+name: podcast-downloader
+version: 0.1.0
+author: Jane Keibler <wanderingelf14@gmail.com>
+about: Downloads all podcast episodes from a feed
+args:
+  - output_folder:
+      short: o
+      long: output_folder
+      value_name: FOLDER
+      help: Where the audio files are placed on the filesystem
+      takes_value: true
+  - feed:
+      help: URL for an RSS feed of the podcast to download
+      required: true
+      index: 1
