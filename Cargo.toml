@@ -2,6 +2,7 @@
 name = "podcast-downloader"
 version = "0.1.0"
 authors = ["Jane Keibler <wanderingelf14@gmail.com>"]
+license = "GPLv3"
 
 [dependencies]
 reqwest = "0.4.0"
