@@ -1,4 +1,6 @@
-// Podcast-Downloader takes an input RSS feed URL from the command-line and downloads all episodes from that feed.
+// Podcast-Downloader takes an input RSS feed URL from the command-line
+// - and downloads all episodes from that feed.
+//
 // Copyright (C) 2017  Matthew Keibler
 //
 // This program is free software: you can redistribute it and/or modify
@@ -46,9 +48,13 @@ fn main() {
         let mut response = get(url).unwrap();
 
         let path = Path::join(output_folder, Path::new(filename));
-        let mut file = File::create(&path).unwrap();
-        let mut buffer = Vec::new();
-        response.read_to_end(&mut buffer).unwrap();
-        file.write_all(&buffer).unwrap();
+        if !path.exists() {
+            let mut file = File::create(&path).unwrap();
+            let mut buffer = Vec::new();
+            response.read_to_end(&mut buffer).unwrap();
+            file.write_all(&buffer).unwrap();
+        } else {
+            println!("Episode has already been downloaded.")
+        }
     }
 }
